@@ -1,0 +1,66 @@
+<%- include('header.ejs') -%>
+
+<!-- Begin Nav
+================================================== -->
+
+	<%- include('navbar.ejs') -%>
+
+<!-- End Nav
+================================================== -->
+
+<!-- Begin Login form
+================================================== -->
+<div class="container">
+		<section class="vh-90" style="background-color: white">
+			<div class="container py-3 h-100">
+			  <div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+				  <div class="card shadow-2-strong" style="border-radius: 1rem;">
+					<div class="card-body p-5 text-center">
+					 <form action="login.ejs" method="POST">
+					  <h3 class="mb-5"><i class="fa fa-user"></i> Sign in</h3>
+		  
+							<div class="form-outline mb-4">
+								<input type="email" id="email" name="email" class="form-control form-control-md" placeholder="Email"/>
+							</div>
+				
+							<div class="form-outline mb-4">
+								<input type="password" id="password" name="password" class="form-control form-control-md" placeholder="Password" />
+							</div>
+				
+							<div class="form-check d-flex justify-content-start mb-4">
+								
+								<p>Don't have an Account? <a href="register.ejs">Sign Up</a></p>
+							</div>
+				
+							<button class="btn btn-primary btn-lg btn-block"style="background-color: black; border: black" type="submit">Login</button>
+					</form>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </section>
+
+<!-- End Login form
+================================================== -->
+
+
+<!-- Begin Footer
+================================================== -->
+
+	<%- include('footer.ejs') -%>
+
+<!-- End Footer
+================================================== -->
+</div>
+<!-- /.container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
