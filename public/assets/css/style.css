@@ -55,6 +55,7 @@ section {
 	height:260px;
 	padding-left:0;
 	margin-bottom:15px;
+	
 }
 .listfeaturedtag .thumbnail {
 	background-size:cover;
@@ -66,6 +67,7 @@ section {
 }
 .listfeaturedtag .card-block {
 	padding-left:0;
+	
 }
 .listfeaturedtag h2.card-title,.listrecent h2.card-title {
 	font-size:1.3rem;
@@ -82,8 +84,11 @@ section {
 .listfeaturedtag h4.card-text,.listrecent h4.card-text {
 	color:rgba(0,0,0,.44);
 	font-size:0.95rem;
-	line-height:1.4;
+	line-height:1.2;
 	font-weight:400;
+	max-height: 3.6em;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 .listfeaturedtag .wrapfooter {
 	position:absolute;
@@ -201,12 +206,9 @@ span.post-name a,span.post-read-more a:hover {
 	border-top:1px solid rgba(0,0,0,.05)!important;
 	padding-top:15px;
 	padding-bottom:12px;
-	padding-left: 50px;
-	padding-right: 50px;
 	font-size:0.8rem;
 	color:rgba(0,0,0,.44);
 	margin-top:50px;
-	position: fixed;
 }
 .link-dark {
 	color:rgba(0,0,0,.8);

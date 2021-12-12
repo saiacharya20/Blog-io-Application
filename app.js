@@ -54,19 +54,29 @@ const isAuthenticated = (req, res, next) => {
         res.locals.username = req.session.user;
         next();
     }else{
-        res.render('index')
+        const postData = Post.find({}, (err, posts) => {
+            res.render('index', {
+                postList : posts
+            });
+    
+        });
     }
 }
 
-app.get('/', isAuthenticated, (req, res) => {
-    res.render('index');
+app.get('/', isAuthenticated,(req, res) => {
+    const postData = Post.find({}, (err, posts) => {
+        res.render('index', {
+            postList : posts
+        });
+
+    });
 });
 
 app.get('/login', (req, res) => {
     res.render('login');
 });
 
-app.get('/post', isAuthenticated, (req, res) => {
+app.get('/post', (req, res) => {
     res.render('post');
 });
 
@@ -93,13 +103,12 @@ app.post('/user', upload, isAuthenticated, async (req,res) => {
     try {
         const newPost = new Post({
             title: req.body.title,
-            brief: req.body.brief,
             user_id: userid,
             image: req.file.filename,
             article: req.body.article
         });
      const posted = await newPost.save();
-     res.status(201).render('index');
+     res.status(201).redirect('/');
         
     }catch (error) {
         res.status(500).send(error);
