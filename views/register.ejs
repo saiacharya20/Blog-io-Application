@@ -1,9 +1,9 @@
-<%- include('header.ejs') -%>
+<%- include('./partials/header.ejs') -%>
 
 <!-- Begin Nav
 ================================================== -->
 
-	<%- include('navbar.ejs') -%>
+	<%- include('./partials/navbar.ejs') -%>
 
 <!-- End Nav
 ================================================== -->
@@ -17,7 +17,7 @@
 				<div class="col-12 col-md-8 col-md-6 col-xl-5">
 				  <div class="card shadow-2-strong" style="border-radius: 1rem;">
 					<div class="card-body p-5 text-center">
-						<form action="register.ejs" method="POST">
+						<form action="register" method="POST">
 
 							<h3 class="mb-5"><i class="fa fa-users"></i> Create New Account</h3>
 							<div class="form-outline mb-4">
@@ -48,7 +48,7 @@
 						
 							<div class="form-check d-flex justify-content-start mb-4">
 								
-							<p>Already have an Account? <a href="login.ejs">Sign in</a></p>
+							<p>Already have an Account? <a href="login">Sign in</a></p>
 							</div>
 				
 							<button class="btn btn-primary btn-lg btn-block" style="background-color: black; border: black" type="submit">Register</button>
@@ -67,7 +67,7 @@
 <!-- Begin Footer
 ================================================== -->
 
-	<%- include('footer.ejs') -%>
+	<%- include('./partials/footer.ejs') -%>
 
 <!-- End Footer
 ================================================== -->

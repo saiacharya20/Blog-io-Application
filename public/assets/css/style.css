@@ -201,9 +201,12 @@ span.post-name a,span.post-read-more a:hover {
 	border-top:1px solid rgba(0,0,0,.05)!important;
 	padding-top:15px;
 	padding-bottom:12px;
+	padding-left: 50px;
+	padding-right: 50px;
 	font-size:0.8rem;
 	color:rgba(0,0,0,.44);
 	margin-top:50px;
+	position: fixed;
 }
 .link-dark {
 	color:rgba(0,0,0,.8);
@@ -296,11 +299,7 @@ blockquote {
 	color:rgba(0,0,0,.44);
 	fill:rgba(0,0,0,.44);
 }
-.graybg {
-	background-color:#fafafa;
-	padding:40px 0 46px;
-	position:relative;
-}
+
 .listrelated .card {
 	box-shadow:0 1px 7px rgba(0,0,0,.05);
 	border:0;
@@ -341,4 +340,3 @@ ul.tags li a:hover {
 	margin:0px auto;
 	margin-bottom:1.2rem;
 }
-

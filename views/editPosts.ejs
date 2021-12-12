@@ -10,15 +10,16 @@
 
 <!-- Begin Login form
 ================================================== -->
-<div class="container" >
+<div class="container">
 	<section style="background-color: white">
 		<div class="container py-5 h-100">
 		  <div class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col-12 col-md-8 col-lg-6 col-xl-10">
 			  <div class="card shadow-2-strong" style="border-radius: 1rem;">
 				<div class="card-body p-5 ">
-					<form action="user" method="POST" role="form" enctype="multipart/form-data">
-						<h1><i class="fa fa-align-left"></i> Create New Post</h1><br>
+					<form action="editPosts" method="PUT" role="form" enctype="multipart/form-data">
+					  <pre>
+						<h1><i class="fa fa-align-left"></i> Edit Post</h1><br>
 						<div class="form-group">
 						  <label for="exampleFormControlInput1">Title</label>
 						  <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Enter Title">
@@ -40,6 +41,7 @@
 						</div>
 						<br>
 						<button class="btn btn-primary btn-lg btn-block" style="width:200px; background-color: black; border: black;" type="submit">Submit</button>
+					</pre>
 					</form>
 				</div>
 			  </div>
@@ -47,7 +49,7 @@
 		  </div>
 		</div>
 	  </section>
-</div>
+
 <!-- End Login form
 ================================================== -->
 
@@ -59,7 +61,7 @@
 
 <!-- End Footer
 ================================================== -->
-
+</div>
 <!-- /.container -->
 <!-- Bootstrap core JavaScript
 ================================================== -->

@@ -5,13 +5,18 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    user_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Register',
+        required: true
+
+    },
     brief:{
         type:String,
         required:true
     },
     image:{
         type:String,
-        required:true
     },
     article:{
         type:String,
