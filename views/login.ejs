@@ -11,7 +11,7 @@
 <!-- Begin Login form
 ================================================== -->
 <div class="container">
-		<section class="vh-100" style="background-color: white;">
+		<section class="vh-100" style="background-color: white; margin-top: -100px;">
 			<div class="container py-3 h-100">
 			  <div class="row d-flex justify-content-center align-items-center h-100">
 				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -21,11 +21,11 @@
 					  <h3 class="mb-5"><i class="fa fa-user"></i> Sign in</h3>
 		  
 							<div class="form-outline mb-4">
-								<input type="email" id="email" name="email" class="form-control form-control-md" placeholder="Email"/>
+								<input type="email" id="email" required name="email" class="form-control form-control-md" placeholder="Email"/>
 							</div>
 				
 							<div class="form-outline mb-4">
-								<input type="password" id="password" name="password" class="form-control form-control-md" placeholder="Password" />
+								<input type="password" id="password" required name="password" class="form-control form-control-md" placeholder="Password" />
 							</div>
 				
 							<div class="form-check d-flex justify-content-start mb-4">
@@ -33,7 +33,7 @@
 								<p>Don't have an Account? <a href="register">Sign Up</a></p>
 							</div>
 				
-							<button class="btn btn-primary btn-lg btn-block"style="background-color: black; border: black" type="submit">Login</button>
+							<button class="btn btn-primary btn-lg btn-block" onclick style="background-color: black; border: black" type="submit">Login</button>
 					</form>
 					</div>
 				  </div>

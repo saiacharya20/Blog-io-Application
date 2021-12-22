@@ -19,30 +19,33 @@
 		<h2><span>All Articles</span></h2>
 	</div>
 	<div class="card-columns listfeaturedtag" style="height: 100%; margin-bottom: 200px;">
+		<% if (count === 0) {%>
+			<h1 style="margin-left: 35%; margin-top: 10%; color: #d6d2d2;">Nothing to see here :)</h1>
+		<% }else {%> 
 		<!-- begin post -->
 		<% postList.forEach(element => { %> 
 		<div class="card">
 			<div class="row">
 				<div class="col-md-5 wrapthumbnail">
-					<a href="post">
+					<a href="post?id=<%= element._id%>">
 						<div class="thumbnail" style="background-image:url(assets/img/demopic/<%= element.image %>);">
 						</div>
 					</a>
 				</div>
 				<div class="col-md-7">
 					<div class="card-block">
-						<h2 class="card-title"><a href="post"><%= element.title %> </a></h2>
+						<h2 class="card-title"><a href="post?id=<%= element._id%>"><%= element.title %></a></h2>
 						<h4 class="card-text"><%= element.article %> </h4>
 						<div class="metafooter">
 							<div class="wrapfooter">
 								<span class="meta-footer-thumb">
-								<a href=""><img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x" alt="Sai"></a>
+									<img class="author-thumb" src="http://www.gravatar.com/avatar/?d=mp">
 								</span>
 								<span class="author-meta">
-								<span class="post-name"><a href=""> Steve</a></span><br/>
-								<span class="post-date">22 July 2022</span><span style='margin-right:10em'></span> 
+								<span class="post-name"><%= element.user_id.firstName %> <%= element.user_id.lastName %></span><br/>
+								<span class="post-date">Posted on <%= element._id.getTimestamp().toLocaleDateString("en-UK") %> </span><span style='margin-right:8em'></span> 
 								</span>
-								<span class="post-read-more"><a href="post" title="Read Story"><i class="fa fa-angle-double-right fa-2x"></i></a></span>
+								<span class="post-read-more"><a href="post?id=<%= element._id%>" title="Read Story"><i class="fa fa-angle-double-right fa-2x"></i></a></span>
 							</div>
 						</div>
 					</div>
@@ -50,6 +53,7 @@
 			</div>
 		</div>
 		<% }); %> 
+		<% } %> 
 		<!-- end post -->
 
 	</div>

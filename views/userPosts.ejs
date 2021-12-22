@@ -11,31 +11,33 @@
 <!-- Begin User Posts
 ================================================== -->
 	<div class="container">
-		<div class="row listrecent listrelated" style="height: 100%; margin-bottom:200px;">
-
+		<div class="row listrecent listrelated" style="height: 100vh; margin-bottom:200px;">
+			<% if (count === 0) {%>
+				<h1 style="margin-left: 35%; margin-top: 10%; color: #d6d2d2;">Nothing to see here :)</h1>
+			<% }else {%> 
+			<% postList.forEach(element => { %> 
 			<!-- begin post -->
 			<div class="col-md-4">
 				<div class="card">
-					<a href="post.html">
-					<img class="img-fluid img-thumb" src="assets/img/demopic/9.jpg" alt="">
+					<a href="post?id=<%= element._id%>">
+					<img class="img-fluid img-thumb" src="assets/img/demopic/<%= element.image %> " alt="">
 					</a>
 					<div class="card-block">
-						<h2 class="card-title"><a href="post">Best recreational places to visit on a holiday</a></h2>
+						<h2 class="card-title"><a href="post?id=<%= element._id%>"><%= element.title  %> </a></h2>
 						<div class="metafooter">
 							<div class="wrapfooter">
-								<span class="meta-footer-thumb">
-								<a href="author.html"><img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x" alt="Sal"></a>
-								</span>
 								<span class="author-meta">
-								<span class="post-name"><a href="author.html">Sal</a></span><br/>
-                                <span class="post-date">22 July 2022</span><span style='margin-right:12em'></span> 
+                                <span class="post-date">Posted on <%= element._id.getTimestamp().toLocaleDateString("en-UK") %> </span><span style='margin-right:10em'></span> 
 								</span>
-								<span class="post-read-more"><a href="editPosts" title="Edit Post"><i class="fa fa-edit fa-3x"></i></a></span>
+								<span class="post-read-more"><a href="editPosts?pid=<%= element._id %>" title="Edit Post"><i class="fa fa-edit fa-2x"></i></a><span style='margin-right:0.7em'></span></a></span>
+								<span class="post-read-more"><a href="deletePosts?id=<%= element._id %>" title="Delete Post"><i class="fa fa-trash fa-2x"></i></a></span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<% }) %> 
+			<% } %> 
 			<!-- end post -->
 
 		</div>

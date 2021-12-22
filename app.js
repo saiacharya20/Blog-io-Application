@@ -13,6 +13,8 @@ const port = process.env.PORT || 3000
 require("./database/connection");
 const Register = require('./models/register');
 const Post = require('./models/post');
+const { getMaxListeners } = require("process");
+const { request } = require("http");
 
 const app = express();
 
@@ -23,7 +25,6 @@ const storage = multer.diskStorage({
         cb(null, './public/assets/img/demopic');
     },
     filename: (req, file, cb) => {
-        console.log(file);
         cb(null, Date.now() + path.extname(file.originalname));
     }
 });
@@ -54,49 +55,114 @@ const isAuthenticated = (req, res, next) => {
         res.locals.username = req.session.user;
         next();
     }else{
-        const postData = Post.find({}, (err, posts) => {
-            res.render('index', {
-                postList : posts
-            });
-    
-        });
+        next();
     }
 }
 
 app.get('/', isAuthenticated,(req, res) => {
-    const postData = Post.find({}, (err, posts) => {
-        res.render('index', {
-            postList : posts
-        });
-
+    Post.find({}).populate('user_id').exec(function (error, posts) {
+        try {
+            res.render('index', {
+                postList : posts,
+                count: posts.length
+            });
+            
+        } catch (error) {
+            res.send(error);
+        }
+            
     });
+    
+});
+
+app.get('/about', isAuthenticated, (req, res) => {
+    res.render('about');
 });
 
 app.get('/login', (req, res) => {
     res.render('login');
 });
 
-app.get('/post', (req, res) => {
-    res.render('post');
+app.get('/post', isAuthenticated, (req, res) => {
+    Post.findById(req.query.id).populate('user_id').exec(function (error, post){
+        try {
+            res.render('post', {
+                postData: post
+            });
+            
+        } catch (error) {
+            res.send(error)
+        }
+    })
 });
 
-app.get('/user', isAuthenticated, (req, res) => {
-    res.render('user');
+app.get('/deletePosts', async (req, res) => {
+    const post_id = req.query.id
+    try {
+        const edit = await Post.findByIdAndDelete(post_id)
+        res.status(201).redirect('userPosts');
+        
+    }catch (error) {
+        res.status(500).send(error);
+    } 
+ 
+
+});
+    
+app.get('/create', isAuthenticated, (req, res) => {
+    res.render('create');
 });
 
-app.get('/userPosts',isAuthenticated, (req, res) => {
-    res.render('userPosts');
+app.get('/userPosts',isAuthenticated, async (req, res) => {
+    Register.find({email: req.session.user}, {_id:1}, async function (error, userid) {
+        try {
+            userPost = await Post.find({user_id: userid});
+            res.render('userPosts', {
+                postList: userPost,
+                count:userPost.length
+            });
+            
+        } catch (error) {
+            res.send(error);
+        }
+            
+    });
 });
 
-app.get('/editPosts',isAuthenticated, (req, res) => {
-    res.render('editPosts');
+app.get('/editPosts',isAuthenticated, async(req, res) => {
+    Post.findById(req.query.pid).populate('user_id').exec(function (error, editPost){
+        try {
+            res.render('editPosts',{
+                editPost: editPost
+            });
+            
+        } catch (error) {
+            res.send(error)
+        }
+    })
 });
+
+app.post('/editPosts', isAuthenticated, async (req, res) => {
+    const post_id = req.body.id
+    try {
+        const edit = await Post.findByIdAndUpdate(post_id, {
+            title: req.body.title,
+            article: req.body.article
+        });
+        const edited = await edit.save()
+        res.status(201).redirect('userPosts');
+        
+    }catch (error) {
+        res.status(500).send(error);
+    } 
+ 
+})
 
 app.get('/register', (req, res) => {
     res.render('register')
 });
 
-app.post('/user', upload, isAuthenticated, async (req,res) => {
+app.post('/create', upload, isAuthenticated, async (req,res) => {
     const email = req.session.user;
     const user = await Register.findOne({email:email});
     const userid =user._id;
@@ -144,20 +210,20 @@ app.post('/login', async (req, res) => {
         let isEqual = await bcrypt.compare(password, user.password)
         if(isEqual){
             req.session.user = req.body.email;
-            res.status(201).redirect('user');
+            res.status(201).redirect('/');
         }else{
-            res.status(401).send("Invalid Credentials!");
+            res.status(401).render('login')
         }
 
         
     } catch (error) {
-        res.status(401).send('Invalid Credentials!')
+        res.status(401).send(error)
     }
 });
 
 app.get('/logout', (req,res) => {
     req.session.destroy();
-    res.redirect('/');
+    res.redirect('login');
 })
 app.listen(port, () => {
     console.log('Server Running at http://localhost:3000');

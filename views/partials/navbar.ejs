@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
+<nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation" >
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,7 +8,7 @@
         <h2><i class="fa fa-paperclip"></i> Blog.io</h2>
         </a>
         <!-- End Logo -->
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="margin-top: -80px ;">
             <!-- Begin Menu -->
             <% if (locals.username) { %>
             <ul class="navbar-nav ml-auto">
@@ -16,16 +16,16 @@
                 <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="">About</a>
+                <a class="nav-link" href="about">About</a>
                 <li class="nav-item">
-                    <a class="nav-link" href="user">Create</a>
+                    <a class="nav-link" href="create">Create</a>
                 </li>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="userPosts">View</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
+                <a class="nav-link" href="logout">Logout</a>
                 </li>
             </ul>
             <% }else{ %>
@@ -34,7 +34,7 @@
                 <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="">About</a>
+                <a class="nav-link" href="about">About</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="login">Login</a>
