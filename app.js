@@ -103,7 +103,7 @@ app.get('/deletePosts', async (req, res) => {
         res.status(201).redirect('userPosts');
         
     }catch (error) {
-        res.status(500).send(error);
+        res.status(404).send(error);
     } 
  
 
@@ -153,7 +153,7 @@ app.post('/editPosts', isAuthenticated, async (req, res) => {
         res.status(201).redirect('userPosts');
         
     }catch (error) {
-        res.status(500).send(error);
+        res.status(404).send(error);
     } 
  
 })
@@ -177,7 +177,7 @@ app.post('/create', upload, isAuthenticated, async (req,res) => {
      res.status(201).redirect('/');
         
     }catch (error) {
-        res.status(500).send(error);
+        res.status(404).send(error);
     }
 });
 
@@ -198,7 +198,7 @@ app.post('/register', async(req,res) => {
         
         
     } catch (error) {
-        res.status(500).send(error);
+        res.status(404).send(error);
     }
 });
 
