@@ -8,7 +8,7 @@ const mongoDBStore = require('connect-mongodb-session')(session);
 const dotenv = require("dotenv");
 const path = require("path");
 const bcrypt = require("bcrypt");
-const port = process.env.PORT || 3000
+const port = process.env.PORT 
 
 require("./database/connection");
 const Register = require('./models/register');
