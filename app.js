@@ -75,9 +75,6 @@ app.get('/', isAuthenticated,(req, res) => {
     
 });
 
-app.get('/about', isAuthenticated, (req, res) => {
-    res.render('about');
-});
 
 app.get('/login', (req, res) => {
     res.render('login');
