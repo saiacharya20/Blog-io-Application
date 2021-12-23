@@ -1,16 +1,14 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation" >
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="container">
-        <!-- Begin Logo -->
-        <a class="navbar-brand" href="/">
-        <h2><i class="fa fa-paperclip"></i> Blog.io</h2>
+<nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
+    <!-- Begin Logo -->
+        <a class="navbar-brand" href="/" style="height: 65px;">
+            <h2><i class="fa fa-paperclip"></i> Blog.io</h2>
         </a>
-        <!-- End Logo -->
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="margin-top: -80px ;">
-            <!-- Begin Menu -->
-            <% if (locals.username) { %>
+    <!-- End Logo -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 50px;">
+        <% if (locals.username) { %>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
@@ -42,6 +40,5 @@
             </ul>
             <% } %> 
             <!-- End Menu -->
-        </div>
     </div>
-    </nav>
+  </nav>
