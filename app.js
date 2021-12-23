@@ -105,8 +105,6 @@ app.get('/deletePosts', async (req, res) => {
     }catch (error) {
         res.status(404).send(error);
     } 
- 
-
 });
     
 app.get('/create', isAuthenticated, (req, res) => {
@@ -195,8 +193,7 @@ app.post('/register', async(req,res) => {
         });
         const registered = await registerUser.save();
         res.status(201).render('login');
-        
-        
+
     } catch (error) {
         res.status(404).send(error);
     }
@@ -214,10 +211,9 @@ app.post('/login', async (req, res) => {
         }else{
             res.status(401).render('login')
         }
-
         
     } catch (error) {
-        res.status(401).send(error)
+        res.status(404).render('login')
     }
 });
 
@@ -225,6 +221,7 @@ app.get('/logout', (req,res) => {
     req.session.destroy();
     res.redirect('login');
 })
+
 app.listen(port, () => {
-    console.log('Server Running at http://localhost:3000');
+    console.log('Server is Running');
 });
