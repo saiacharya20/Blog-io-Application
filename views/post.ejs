@@ -13,25 +13,21 @@
 		<!-- Begin Post -->
 		<div class="col-md-8 col-md-offset-2 col-xs-12">
 			<div class="mainheading">
-
-				<!-- Begin Top Meta -->
-				<div class="row post-top-meta">
-					<div class="col-md-8">
-						<h7><%= postData.user_id.firstName %> <%= postData.user_id.lastName %></h7><br>
-						<span class="author-description">Author</span><br>
-						<span class="post-date">Posted on <%= postData._id.getTimestamp().toLocaleDateString("en-UK") %> </span><span class="dot"></span><span class="post-read">5 min read</span>
-					</div>
-				</div>
-				<!-- End Top Menta -->
-
 				<h1 class="posttitle"><%= postData.title  %> </h1>
-
 			</div>
-
+			<!-- Begin Top Meta -->
+			<div class="row post-top-meta">
+				<div class="col-md-8">
+					<span class="post-date">
+					Posted by <%= postData.user_id.firstName %> <%= postData.user_id.lastName %> / Updated on <%= postData._id.getTimestamp().toLocaleDateString("en-UK") %> </span><span class="dot"></span><span class="post-read">5 min read
+					</span>
+				</div>
+			</div>
+			<!-- End Top Menta -->
 			<!-- Begin Featured Image -->
 			<img class="featured-image img-fluid" src="assets/img/demopic/<%= postData.image  %> " alt="">
 			<!-- End Featured Image -->
-
+		
 			<!-- Begin Post Content -->
 			<div class="article-post">
 				<p>
