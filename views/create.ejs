@@ -1,68 +1,77 @@
 <%- include('./partials/header.ejs') -%>
 
-<!-- Begin Nav
+	<!-- Begin Nav
 ================================================== -->
 
 	<%- include('./partials/navbar.ejs') -%>
 
-<!-- End Nav
+		<!-- End Nav
 ================================================== -->
 
-<!-- Begin Login form
+		<!-- Begin Login form
 ================================================== -->
-<div class="container">
-	<section style="background-color: white">
-		<div class="container py-5 h-100">
-		  <div class="row d-flex justify-content-center align-items-center h-100">
-			<div class="col-12 col-md-8 col-lg-6 col-xl-10">
-			  <div class="card shadow-2-strong" style="border-radius: 1rem;">
-				<div class="card-body p-5 ">
-					<form action="create" method="POST" role="form" enctype="multipart/form-data">
-						<h3><i class="fa fa-align-left"></i> Create Post</h3><br>
-						<div class="form-group">
-						  <label for="exampleFormControlInput1">Title</label>
-						  <input type="text" class="form-control" id="exampleFormControlInput1" required name="title" placeholder="Enter Title">
+		<div class="container">
+			<section style="background-color: white">
+				<div class="container py-5 h-100">
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col-12 col-md-8 col-lg-6 col-xl-10">
+							<div class="card shadow-2-strong" style="border-radius: 1rem;">
+								<div class="card-body p-5 ">
+									<form action="create" method="POST" role="form" enctype="multipart/form-data">
+										<h3><i class="fa fa-align-left"></i> Create Post</h3><br>
+										<div class="form-group">
+											<label for="exampleFormControlInput1">Title</label>
+											<input type="text" class="form-control" id="exampleFormControlInput1"
+												required name="title" placeholder="Enter Title">
+										</div>
+										<div class="form-group">
+											<label for="customFile">Image</label>
+											<div class="custom-file">
+												<input type="file" class="custom-file-input" name="image" required
+													id="customFile">
+												<label class="custom-file-label" id="image" for="customFile">Choose
+													File</label>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="exampleFormControlTextarea1">Write your article</label>
+											<textarea class="form-control" id="exampleFormControlTextarea1"
+												name="article" rows="15" required></textarea>
+										</div>
+										<br>
+										<button class="btn btn-primary btn-lg btn-block"
+											style="width:200px; background-color: black; border: black;"
+											type="submit">Submit</button>
+									</form>
+								</div>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="customFile">Image</label>
-							<div class="custom-file">
-								<input type="file" class="custom-file-input" name="image" required id="customFile">
-								<label class="custom-file-label" id="image" for="customFile">Choose File</label>
-							</div>	
-						</div>
-						<div class="form-group">
-						  <label for="exampleFormControlTextarea1">Write your article</label>
-						  <textarea class="form-control" id="exampleFormControlTextarea1" name="article" rows="15" required></textarea>
-						</div>
-						<br>
-						<button class="btn btn-primary btn-lg btn-block" style="width:200px; background-color: black; border: black;" type="submit">Submit</button>
-					</form>
+					</div>
 				</div>
-			  </div>
-			</div>
-		  </div>
+			</section>
+
+			<!-- End Login form
+================================================== -->
+
+
+			<!-- Begin Footer
+================================================== -->
+
+			<%- include('./partials/footer.ejs') -%>
+
+				<!-- End Footer
+================================================== -->
 		</div>
-	  </section>
-
-<!-- End Login form
+		<!-- /.container -->
+		<!-- Bootstrap core JavaScript
 ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+			integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+			crossorigin="anonymous"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+		</body>
 
-
-<!-- Begin Footer
-================================================== -->
-
-	<%- include('./partials/footer.ejs') -%>
-
-<!-- End Footer
-================================================== -->
-</div>
-<!-- /.container -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>
+		</html>

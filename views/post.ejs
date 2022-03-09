@@ -1,61 +1,69 @@
 <%- include('./partials/header.ejs') %>
-<!-- Begin Nav
+	<!-- Begin Nav
 ================================================== -->
-<%- include('./partials/navbar.ejs') %>
-<!-- End Nav
+	<%- include('./partials/navbar.ejs') %>
+		<!-- End Nav
 ================================================== -->
 
-<!-- Begin Article
+		<!-- Begin Article
 ================================================== -->
-<div class="container">
-	<div class="row">
+		<div class="container">
+			<div class="row">
 
-		<!-- Begin Post -->
-		<div class="col-md-8 col-md-offset-2 col-xs-12">
-			<div class="mainheading">
-				<h1 class="posttitle"><%= postData.title  %> </h1>
-			</div>
-			<!-- Begin Top Meta -->
-			<div class="row post-top-meta">
-				<div class="col-md-8">
-					<span class="post-date">
-					Posted by <%= postData.user_id.firstName %> <%= postData.user_id.lastName %> / Updated on <%= postData._id.getTimestamp().toLocaleDateString("en-UK") %> </span><span class="dot"></span><span class="post-read">5 min read
-					</span>
+				<!-- Begin Post -->
+				<div class="col-md-8 col-md-offset-2 col-xs-12">
+					<div class="mainheading">
+						<h1 class="posttitle">
+							<%= postData.title %>
+						</h1>
+					</div>
+					<!-- Begin Top Meta -->
+					<div class="row post-top-meta">
+						<div class="col-md-8">
+							<span class="post-date">
+								Posted by <%= postData.user_id.firstName %>
+									<%= postData.user_id.lastName %> / Updated on <%=
+											postData._id.getTimestamp().toLocaleDateString("en-UK") %> </span><span
+								class="dot"></span><span class="post-read">5 min read
+							</span>
+						</div>
+					</div>
+					<!-- End Top Menta -->
+					<!-- Begin Featured Image -->
+					<img class="featured-image img-fluid" src="assets/img/demopic/<%= postData.image  %> " alt="">
+					<!-- End Featured Image -->
+
+					<!-- Begin Post Content -->
+					<div class="article-post">
+						<p>
+							<%= postData.article %>
+						</p>
+					</div>
+					<!-- End Post Content -->
+
 				</div>
+				<!-- End Post -->
 			</div>
-			<!-- End Top Menta -->
-			<!-- Begin Featured Image -->
-			<img class="featured-image img-fluid" src="assets/img/demopic/<%= postData.image  %> " alt="">
-			<!-- End Featured Image -->
-		
-			<!-- Begin Post Content -->
-			<div class="article-post">
-				<p>
-					<%= postData.article %> 
-				</p>
-			</div>
-			<!-- End Post Content -->
+			<!-- End Article
+================================================== -->
 
+			<!-- Begin Footer
+================================================== -->
+			<%- include('./partials/footer.ejs') %>
 		</div>
-		<!-- End Post -->
-</div>
-<!-- End Article
+		<!-- End Footer
 ================================================== -->
 
-<!-- Begin Footer
+		<!-- Bootstrap core JavaScript
 ================================================== -->
-<%- include('./partials/footer.ejs') %>
-</div>
-<!-- End Footer
-================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+			integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+			crossorigin="anonymous"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+		<script src="assets/js/mediumish.js"></script>
+		</body>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-<script src="assets/js/mediumish.js"></script>
-</body>
-</html>
+		</html>

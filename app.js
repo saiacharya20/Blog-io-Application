@@ -21,7 +21,7 @@ const app = express();
 dotenv.config();
 
 const storage = multer.diskStorage({
-    destination:(req, file, cb) => {
+    destination: (req, file, cb) => {
         cb(null, './public/assets/img/demopic');
     },
     filename: (req, file, cb) => {
@@ -29,50 +29,50 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage: storage}).single('image');
+const upload = multer({ storage: storage }).single('image');
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const store = new mongoDBStore({
-    uri:process.env.MONGODB_HOST,
-    collection:'mySessions'
+    uri: process.env.MONGODB_HOST,
+    collection: 'mySessions'
 });
 
 app.use(session({
-    secret:'secretKey1200',
+    secret: 'secretKey1200',
     resave: false,
-    saveUninitialized:false,
-    cookie:{maxAge: 1000 * 60 * 60 * 2},
-    store:store
+    saveUninitialized: false,
+    cookie: { maxAge: 1000 * 60 * 60 * 2 },
+    store: store
 }));
 
 const isAuthenticated = (req, res, next) => {
     if (req.session.user) {
         res.locals.username = req.session.user;
         next();
-    }else{
+    } else {
         next();
     }
 }
 
-app.get('/', isAuthenticated,(req, res) => {
+app.get('/', isAuthenticated, (req, res) => {
     Post.find({}).populate('user_id').exec(function (error, posts) {
         try {
             res.render('index', {
-                postList : posts,
+                postList: posts,
                 count: posts.length
             });
-            
+
         } catch (error) {
             res.send(error);
         }
-            
+
     });
-    
+
 });
 
 
@@ -81,12 +81,12 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/post', isAuthenticated, (req, res) => {
-    Post.findById(req.query.id).populate('user_id').exec(function (error, post){
+    Post.findById(req.query.id).populate('user_id').exec(function (error, post) {
         try {
             res.render('post', {
                 postData: post
             });
-            
+
         } catch (error) {
             res.send(error)
         }
@@ -98,39 +98,39 @@ app.get('/deletePosts', async (req, res) => {
     try {
         const edit = await Post.findByIdAndDelete(post_id)
         res.status(201).redirect('userPosts');
-        
-    }catch (error) {
+
+    } catch (error) {
         res.status(404).send(error);
-    } 
+    }
 });
-    
+
 app.get('/create', isAuthenticated, (req, res) => {
     res.render('create');
 });
 
-app.get('/userPosts',isAuthenticated, async (req, res) => {
-    Register.find({email: req.session.user}, {_id:1}, async function (error, userid) {
+app.get('/userPosts', isAuthenticated, async (req, res) => {
+    Register.find({ email: req.session.user }, { _id: 1 }, async function (error, userid) {
         try {
-            userPost = await Post.find({user_id: userid});
+            userPost = await Post.find({ user_id: userid });
             res.render('userPosts', {
                 postList: userPost,
-                count:userPost.length
+                count: userPost.length
             });
-            
+
         } catch (error) {
             res.send(error);
         }
-            
+
     });
 });
 
-app.get('/editPosts',isAuthenticated, async(req, res) => {
-    Post.findById(req.query.pid).populate('user_id').exec(function (error, editPost){
+app.get('/editPosts', isAuthenticated, async (req, res) => {
+    Post.findById(req.query.pid).populate('user_id').exec(function (error, editPost) {
         try {
-            res.render('editPosts',{
+            res.render('editPosts', {
                 editPost: editPost
             });
-            
+
         } catch (error) {
             res.send(error)
         }
@@ -146,21 +146,21 @@ app.post('/editPosts', isAuthenticated, async (req, res) => {
         });
         const edited = await edit.save()
         res.status(201).redirect('userPosts');
-        
-    }catch (error) {
+
+    } catch (error) {
         res.status(404).send(error);
-    } 
- 
+    }
+
 })
 
 app.get('/register', (req, res) => {
     res.render('register')
 });
 
-app.post('/create', upload, isAuthenticated, async (req,res) => {
+app.post('/create', upload, isAuthenticated, async (req, res) => {
     const email = req.session.user;
-    const user = await Register.findOne({email:email});
-    const userid =user._id;
+    const user = await Register.findOne({ email: email });
+    const userid = user._id;
     try {
         const newPost = new Post({
             title: req.body.title,
@@ -168,15 +168,15 @@ app.post('/create', upload, isAuthenticated, async (req,res) => {
             image: req.file.filename,
             article: req.body.article
         });
-     const posted = await newPost.save();
-     res.status(201).redirect('/');
-        
-    }catch (error) {
+        const posted = await newPost.save();
+        res.status(201).redirect('/');
+
+    } catch (error) {
         res.status(404).send(error);
     }
 });
 
-app.post('/register', async(req,res) => {
+app.post('/register', async (req, res) => {
     const password = req.body.password;
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -200,21 +200,21 @@ app.post('/login', async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-        const user = await Register.findOne({email:email});
+        const user = await Register.findOne({ email: email });
         let isEqual = await bcrypt.compare(password, user.password)
-        if(isEqual){
+        if (isEqual) {
             req.session.user = req.body.email;
             res.status(201).redirect('/');
-        }else{
+        } else {
             res.status(401).render('login')
         }
-        
+
     } catch (error) {
         res.status(404).render('login')
     }
 });
 
-app.get('/logout', (req,res) => {
+app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('login');
 })

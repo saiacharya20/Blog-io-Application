@@ -1,17 +1,18 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
     <!-- Begin Logo -->
-        <a class="navbar-brand" href="/" style="height: 65px;">
-            <h2><i class="fa fa-paperclip"></i> Blog.io</h2>
-        </a>
+    <a class="navbar-brand" href="/" style="height: 65px;">
+        <h2><i class="fa fa-paperclip"></i> Blog.io</h2>
+    </a>
     <!-- End Logo -->
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <% if (locals.username) { %>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="create">Create</a>
@@ -21,22 +22,22 @@
                     <a class="nav-link" href="userPosts">View</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="logout">Logout</a>
+                    <a class="nav-link" href="logout">Logout</a>
                 </li>
             </ul>
             <% }else{ %>
-            <ul class="navbar-nav ml-auto"> 
-                <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="register">Register</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="login">Login</a>
-                </li>
-            </ul>
-            <% } %> 
-            <!-- End Menu -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login">Login</a>
+                    </li>
+                </ul>
+                <% } %>
+                    <!-- End Menu -->
     </div>
-  </nav>
+</nav>

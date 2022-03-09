@@ -1,66 +1,77 @@
 <%- include('./partials/header.ejs') -%>
 
-<!-- Begin Nav
+	<!-- Begin Nav
 ================================================== -->
 
-    <%- include('./partials/navbar.ejs') -%>
+	<%- include('./partials/navbar.ejs') -%>
 
-<!-- End Nav
+		<!-- End Nav
 ================================================== -->
 
-<!-- Begin User Posts
+		<!-- Begin User Posts
 ================================================== -->
-	<div class="container">
-		<div class="row listrecent listrelated" style="height: 100vh; margin-bottom:200px;">
-			<% if (count === 0) {%>
-				<h1 style="margin-left: 35%; margin-top: 10%; color: #d6d2d2;">Nothing to see here :)</h1>
-			<% }else {%> 
-			<% postList.forEach(element => { %> 
-			<!-- begin post -->
-			<div class="col-md-4">
-				<div class="card">
-					<a href="post?id=<%= element._id%>">
-					<img class="img-fluid img-thumb" src="assets/img/demopic/<%= element.image %> " alt="">
-					</a>
-					<div class="card-block">
-						<h2 class="card-title"><a href="post?id=<%= element._id%>"><%= element.title  %> </a></h2>
-						<div class="metafooter">
-							<div class="wrapfooter">
-								<span class="author-meta">
-                                <span class="post-date">Posted on <%= element._id.getTimestamp().toLocaleDateString("en-UK") %> </span><span style='margin-right:6em'></span> 
-								</span>
-								<span class="post-read-more"><a href="editPosts?pid=<%= element._id %>" title="Edit Post"><i class="fa fa-edit fa-2x"></i></a><span style='margin-right:0.7em'></span></a></span>
-								<span class="post-read-more"><a href="deletePosts?id=<%= element._id %>" title="Delete Post"><i class="fa fa-trash fa-2x"></i></a></span>
+		<div class="container">
+			<div class="row listrecent listrelated" style="height: 100vh; margin-bottom:200px;">
+				<% if (count===0) {%>
+					<h1 style="margin-left: 35%; margin-top: 10%; color: #d6d2d2;">Nothing to see here :)</h1>
+					<% }else {%>
+						<% postList.forEach(element=> { %>
+							<!-- begin post -->
+							<div class="col-md-4">
+								<div class="card">
+									<a href="post?id=<%= element._id%>">
+										<img class="img-fluid img-thumb" src="assets/img/demopic/<%= element.image %> "
+											alt="">
+									</a>
+									<div class="card-block">
+										<h2 class="card-title"><a href="post?id=<%= element._id%>">
+												<%= element.title %>
+											</a></h2>
+										<div class="metafooter">
+											<div class="wrapfooter">
+												<span class="author-meta">
+													<span class="post-date">Posted on <%=
+															element._id.getTimestamp().toLocaleDateString("en-UK") %>
+													</span><span style='margin-right:6em'></span>
+												</span>
+												<span class="post-read-more"><a href="editPosts?pid=<%= element._id %>"
+														title="Edit Post"><i class="fa fa-edit fa-2x"></i></a><span
+														style='margin-right:0.7em'></span></a></span>
+												<span class="post-read-more"><a href="deletePosts?id=<%= element._id %>"
+														title="Delete Post"><i class="fa fa-trash fa-2x"></i></a></span>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<% }) %> 
-			<% } %> 
-			<!-- end post -->
+							<% }) %>
+								<% } %>
+									<!-- end post -->
 
+			</div>
+
+			<!-- End User Posts
+================================================== -->
+
+			<!-- Begin Footer
+================================================== -->
+
+			<%- include('./partials/footer.ejs') -%>
 		</div>
 
-<!-- End User Posts
+		<!-- End Footer
 ================================================== -->
 
-<!-- Begin Footer
+		<!-- Bootstrap core JavaScript
 ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+			integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+			crossorigin="anonymous"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+		<script src="assets/js/mediumish.js"></script>
+		</body>
 
-	<%- include('./partials/footer.ejs') -%>
-</div>
-	
-<!-- End Footer
-================================================== -->
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-<script src="assets/js/mediumish.js"></script>
-</body>
-</html>
+		</html>

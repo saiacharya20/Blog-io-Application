@@ -1,66 +1,72 @@
 <%- include('./partials/header.ejs') -%>
 
-<!-- Begin Nav
+	<!-- Begin Nav
 ================================================== -->
 
 	<%- include('./partials/navbar.ejs') -%>
 
-<!-- End Nav
+		<!-- End Nav
 ================================================== -->
 
-<!-- Begin Login form
+		<!-- Begin Login form
 ================================================== -->
-<div class="container">
-		<section class="vh-100" style="background-color: white; margin-top: -100px;">
-			<div class="container py-3 h-100">
-			  <div class="row d-flex justify-content-center align-items-center h-100">
-				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
-				  <div class="card shadow-2-strong" style="border-radius: 1rem;">
-					<div class="card-body p-5 text-center">
-					 <form action="login" method="POST">
-					  <h3 class="mb-5"><i class="fa fa-user"></i> Sign in</h3>
-		  
-							<div class="form-outline mb-4">
-								<input type="email" id="email" required name="email" class="form-control form-control-md" placeholder="Email"/>
+		<div class="container">
+			<section class="vh-100" style="background-color: white; margin-top: -100px;">
+				<div class="container py-3 h-100">
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+							<div class="card shadow-2-strong" style="border-radius: 1rem;">
+								<div class="card-body p-5 text-center">
+									<form action="login" method="POST">
+										<h3 class="mb-5"><i class="fa fa-user"></i> Sign in</h3>
+
+										<div class="form-outline mb-4">
+											<input type="email" id="email" required name="email"
+												class="form-control form-control-md" placeholder="Email" />
+										</div>
+
+										<div class="form-outline mb-4">
+											<input type="password" id="password" required name="password"
+												class="form-control form-control-md" placeholder="Password" />
+										</div>
+
+										<div class="form-check d-flex justify-content-start mb-4">
+
+											<p>Don't have an Account? <a href="register">Sign Up</a></p>
+										</div>
+
+										<button class="btn btn-primary btn-lg btn-block" onclick
+											style="background-color: black; border: black" type="submit">Login</button>
+									</form>
+								</div>
 							</div>
-				
-							<div class="form-outline mb-4">
-								<input type="password" id="password" required name="password" class="form-control form-control-md" placeholder="Password" />
-							</div>
-				
-							<div class="form-check d-flex justify-content-start mb-4">
-								
-								<p>Don't have an Account? <a href="register">Sign Up</a></p>
-							</div>
-				
-							<button class="btn btn-primary btn-lg btn-block" onclick style="background-color: black; border: black" type="submit">Login</button>
-					</form>
+						</div>
 					</div>
-				  </div>
 				</div>
-			  </div>
-			</div>
-		  </section>
+			</section>
 
-<!-- End Login form
+			<!-- End Login form
 ================================================== -->
 
 
-<!-- Begin Footer
+			<!-- Begin Footer
 ================================================== -->
 
-	<%- include('./partials/footer.ejs') -%>
+			<%- include('./partials/footer.ejs') -%>
 
-<!-- End Footer
+				<!-- End Footer
 ================================================== -->
-</div>
-<!-- /.container -->
-<!-- Bootstrap core JavaScript
+		</div>
+		<!-- /.container -->
+		<!-- Bootstrap core JavaScript
 ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+			integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+			crossorigin="anonymous"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+		</body>
+
+		</html>

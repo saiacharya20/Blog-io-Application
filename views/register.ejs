@@ -1,84 +1,94 @@
 <%- include('./partials/header.ejs') -%>
 
-<!-- Begin Nav
+	<!-- Begin Nav
 ================================================== -->
 
 	<%- include('./partials/navbar.ejs') -%>
 
-<!-- End Nav
+		<!-- End Nav
 ================================================== -->
 
-<!-- Begin Register form
+		<!-- Begin Register form
 ================================================== -->
-<div class="container">
-		<section  style="background-color: white; margin-top:-50px;">
-			<div class="container py-5 h-100">
-			  <div class="row d-flex justify-content-center align-items-center h-100">
-				<div class="col-12 col-md-8 col-md-6 col-xl-5">
-				  <div class="card shadow-2-strong" style="border-radius: 1rem;">
-					<div class="card-body p-5 text-center">
-						<form action="register" method="POST">
+		<div class="container">
+			<section style="background-color: white; margin-top:-50px;">
+				<div class="container py-5 h-100">
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col-12 col-md-8 col-md-6 col-xl-5">
+							<div class="card shadow-2-strong" style="border-radius: 1rem;">
+								<div class="card-body p-5 text-center">
+									<form action="register" method="POST">
 
-							<h3 class="mb-5"><i class="fa fa-users"></i> Create New Account</h3>
-							<div class="form-outline mb-4">
-								<input type="text" id="firstName" required name="firstName"class="form-control form-control-md" placeholder="First Name"/>
-							</div>
+										<h3 class="mb-5"><i class="fa fa-users"></i> Create New Account</h3>
+										<div class="form-outline mb-4">
+											<input type="text" id="firstName" required name="firstName"
+												class="form-control form-control-md" placeholder="First Name" />
+										</div>
 
-							<div class="form-outline mb-4">
-								<input type="text" id="lastName" name="lastName" class="form-control form-control-md" placeholder="Last name"/>
-							</div>
+										<div class="form-outline mb-4">
+											<input type="text" id="lastName" name="lastName"
+												class="form-control form-control-md" placeholder="Last name" />
+										</div>
 
-							<div class="form-outline mb-4">
-								<input type="email" id="email" required name="email" class="form-control form-control-md" placeholder="Email"/>
-							</div>
+										<div class="form-outline mb-4">
+											<input type="email" id="email" required name="email"
+												class="form-control form-control-md" placeholder="Email" />
+										</div>
 
-							<div class="form-outline mb-4">
-								<select id="gender" class="form-control form-control-md" required Placeholder="Choose Gender" name="gender">
-									<option value="" disabled selected>Gender</option>
-									<option value="Male">Male</option>
-									<option value="Female">Female</option>
-									<option value="Other">Other</option>
-								</select>
+										<div class="form-outline mb-4">
+											<select id="gender" class="form-control form-control-md" required
+												Placeholder="Choose Gender" name="gender">
+												<option value="" disabled selected>Gender</option>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
+												<option value="Other">Other</option>
+											</select>
+										</div>
+
+										<div class="form-outline mb-4">
+											<input type="password" required name="password"
+												class="form-control form-control-md" placeholder="Password" />
+										</div>
+
+
+										<div class="form-check d-flex justify-content-start mb-4">
+
+											<p>Already have an Account? <a href="login">Sign in</a></p>
+										</div>
+
+										<button class="btn btn-primary btn-lg btn-block"
+											style="background-color: black; border: black"
+											type="submit">Register</button>
+									</form>
+								</div>
 							</div>
-				
-							<div class="form-outline mb-4">
-								<input type="password" required name="password" class="form-control form-control-md" placeholder="Password" />
-							</div>
-							
-						
-							<div class="form-check d-flex justify-content-start mb-4">
-								
-							<p>Already have an Account? <a href="login">Sign in</a></p>
-							</div>
-				
-							<button class="btn btn-primary btn-lg btn-block" style="background-color: black; border: black" type="submit">Register</button>
-						</form>
+						</div>
 					</div>
-				  </div>
 				</div>
-			  </div>
-			</div>
-		  </section>
+			</section>
 
-<!-- End Register form
+			<!-- End Register form
 ================================================== -->
 
 
-<!-- Begin Footer
+			<!-- Begin Footer
 ================================================== -->
 
-	<%- include('./partials/footer.ejs') -%>
+			<%- include('./partials/footer.ejs') -%>
 
-<!-- End Footer
+				<!-- End Footer
 ================================================== -->
-</div>
-<!-- /.container -->
-<!-- Bootstrap core JavaScript
+		</div>
+		<!-- /.container -->
+		<!-- Bootstrap core JavaScript
 ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+			integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+			crossorigin="anonymous"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+		</body>
+
+		</html>
