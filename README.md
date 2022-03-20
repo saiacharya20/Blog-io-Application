@@ -1,1 +1,2 @@
-# blog-io-application
+# Blog-io-application
+Blog.io is a blogging web application developed using node.js, express.js on the server side and HTML/CSS, Bootstrap on the frontend. This application allows the users to post their blogs publicly on the website once they sign up. Readers can read the blogs without creating an account on the application. This application allows Authors to edit or update their posts once it is posted.
